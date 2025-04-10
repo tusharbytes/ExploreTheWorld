@@ -57,7 +57,7 @@ function page() {
 
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 justify-center md:grid-cols-3 gap-6 mt-10 px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-1 justify-center md:grid-cols-2 gap-6 mt-10 px-4">
           {destination.map((des, index) => (
             <div
 
