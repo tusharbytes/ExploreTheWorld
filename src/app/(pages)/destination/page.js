@@ -7,7 +7,7 @@ function page() {
   const destination = [
     {
       name: "Kedarnath",
-      image: "https://cwn.today/wp-content/uploads/2024/03/4cf9bdfc97a425bde075a3c154c6dc91c79a2.jpg"
+      image: "https://www.team-bhp.com/forum/attachments/travelogues/2550734d1703776514-hyderabad-kedarnath-solo-drive-vento-tsi-some-my-observations-kedarnath1.jpg"
     },
     {
       name: "Kerala",
@@ -15,19 +15,19 @@ function page() {
     },
     {
       name: "Jaipur",
-      image: "https://storage.karmagroup.com/assets/karmagroup.com/blog/2018/05/Hawa-Mahal.jpg"
+      image: "https://w0.peakpx.com/wallpaper/422/518/HD-wallpaper-jaipur-the-nonpareil-jewel-of-india-amer-fort.jpg"
     },
     {
       name: "Goa",
-      image: "https://s3.india.com/wp-content/uploads/2024/08/Discover-The-Top-10-Fun-Activities-In-Goa-For-Ultimate-Holiday-Bliss.jpg?impolicy=Medium_Widthonly&w=350&h=263"
+      image: "https://d3sftlgbtusmnv.cloudfront.net/blog/wp-content/uploads/2024/09/nightlife-in-north-goa-Cover-Photo-840x425.jpg"
     },
     {
       name: "Manali",
-      image: "https://clubmahindra.gumlet.io/blog/images/Solang-Valley-in-winter-resized.jpg?w=376&dpr=2.6"
+      image: "https://www.adventurush.com/wp-content/uploads/2022/07/shutterstock_1176563608.jpg"
     },
     {
       name: "Varanasi",
-      image: "https://www.ramadajhvvns.com/blog/wp-content/uploads/2018/01/1-1.jpg"
+      image: "https://s7ap1.scene7.com/is/image/incredibleindia/manikarnika-ghat-city-hero?qlt=82&ts=1727959374496"
     },
     {
       name: "Andaman Islands",
@@ -35,7 +35,7 @@ function page() {
     },
     {
       name: "Udaipur",
-      image: "https://www.themaharajaexpress.org/blog/wp-content/uploads/2018/02/Taj-Lake-Palace-Udaipur.jpg"
+      image: "https://map.sahapedia.org/admin/assets/images/2021033013400727799_Banner.jpg?__imr__=bannerMuseum"
     }
   ];
   const handlClick = (option) => {
@@ -57,7 +57,7 @@ function page() {
 
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-1 justify-center md:grid-cols-2 gap-6 mt-10 px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-1 justify-center md:grid-cols-2 gap-6 mt-10 p-4  m-auto px-4">
           {destination.map((des, index) => (
             <div
 
@@ -67,7 +67,7 @@ function page() {
               <img
                 src={des.image}
                 alt={des.name}
-                className="h-56      md:object-cover  rounded-t-3xl"
+                className="h-56     w-full   rounded-t-3xl"
               />
               <div className="p-5 text-center">
                 <h3 className="text-xl font-bold text-indigo-600">{des.name}</h3>
