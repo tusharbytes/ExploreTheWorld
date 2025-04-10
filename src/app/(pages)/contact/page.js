@@ -3,6 +3,7 @@ import { MdOutlineMarkEmailRead } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
 import { ImLocation } from "react-icons/im";
 import { useState } from "react";
+import Container from "@/app/common/Container";
 
 export default function page() {
 const [contactUser ,setContactUser] =useState({
@@ -16,7 +17,7 @@ console.log(contactUser)
 }
 
   return (
-
+<Container>
     <div className="p-8   rounded-xl  max-w-5xl mx-auto mt-10">
  
       <div className="mb-6 text-center">
@@ -76,5 +77,6 @@ console.log(contactUser)
         </div>
       </div>    
     </div>
+    </Container>
   );
 }

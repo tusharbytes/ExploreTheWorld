@@ -9,12 +9,15 @@ function layout({children}) {
   const ShowTopBar = [
     '/about','/contact' , '/destination'
   ]
+
   return (
-    <Container>
+    
+    // <Container>
+    <div>
       {ShowTopBar.includes(pathName) && <Topbar/> }
-     
-        {children}
-    </Container>
+       {children}
+       </div>
+    // </Container>
   )
 }
 

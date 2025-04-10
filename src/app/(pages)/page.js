@@ -4,6 +4,8 @@ import { BiCurrentLocation } from "react-icons/bi";
 import { MdOutlineLibraryBooks } from "react-icons/md";
 import { CiViewBoard } from "react-icons/ci";
 import { location } from '../api/Api';
+import Container from '../common/Container';
+import Link from 'next/link';
 function Page() {
   const [allCountry, setAllCountry] = useState(null)
   console.log(allCountry ,"dsds")
@@ -16,9 +18,9 @@ function Page() {
     response()
   }, [])
   const option = [
-    { name: "Destinations", icon: <BiCurrentLocation />, location: "lkdfa" },
-    { name: "Bookings", icon: <MdOutlineLibraryBooks />, location: "oklsd" },
-    { name: "Suport", icon: <CiViewBoard />, location: "odpksamf,x " }
+    { name: "Destinations", icon: <BiCurrentLocation />, location: "lkdfa" ,path:"/destination"},
+    { name: "Bookings", icon: <MdOutlineLibraryBooks />, location: "oklsd",path:"/" },
+    { name: "Suport", icon: <CiViewBoard />, location: "odpksamf,x ",path:"/" }
 
   ]
   const destination = [
@@ -57,6 +59,7 @@ console.log(area)
           <div className="flex flex-col md:flex-row gap-4 items-center">
 
             <select className="bg-white text-black px-3 py-2 rounded">
+              <option>Select country</option>
               {allCountry?.map((con, index) => (
                 
                 <option key={index} onChange={()=>selectedArea(con)}  className="bg-white text-black">
@@ -66,7 +69,7 @@ console.log(area)
             </select>
 
 
-            <div className="flex gap-2">
+            <div className=" grid grid-cols-1 md:grid-cols-2 gap-4 ">
               <input type="text" className="px-3 py-2 border border-white placeholder:text-white  rounded  " />
               <input type="text" className="px-3 py-2 border border-white  placeholder:text-white  rounded  " />
             </div>
@@ -77,6 +80,7 @@ console.log(area)
           </div>
         </div>
       </div>
+      <Container>
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10 px-4">
         {option.map((des, index) => (
           <div
@@ -86,7 +90,7 @@ console.log(area)
             <div className="text-4xl flex justify-center mb-4 text-indigo-600">
               {des.icon}
             </div>
-            <h3 className="text-xl font-bold text-indigo-700">{des.name}</h3>
+            <Link href={des.path} className="text-xl font-bold text-indigo-700">{des.name}</Link>
             <p className="text-sm text-gray-500 mt-2">{des.location}</p>
           </div>
         ))}
@@ -114,7 +118,7 @@ console.log(area)
           </div>
         ))}
       </div>
-
+      </Container>
 
     </div>
   );
