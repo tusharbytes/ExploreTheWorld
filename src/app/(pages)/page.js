@@ -92,7 +92,7 @@ function Page() {
               <input onChange={(e)=>handleSearch(e.target.value)}   type="text" placeholder='Search...' className="px-3 py-2 border border-white  placeholder:text-white  rounded  " />
             </div>
 
-            <button onClick={()=>handleSearch()} className="bg-[#e03030]  hover:bg-[#e01616] rounded-lg cursor-pointer text-white px-4 py-2">
+            <button  className="bg-[#e03030]  hover:bg-[#e01616] rounded-lg cursor-pointer text-white px-4 py-2">
               Search
             </button>
           </div>

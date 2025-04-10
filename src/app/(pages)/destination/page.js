@@ -67,7 +67,7 @@ function page() {
               <img
                 src={des.image}
                 alt={des.name}
-                className="h-56   md:w-full  w-[250px] object-cover rounded-t-3xl"
+                className="h-56      md:object-cover  rounded-t-3xl"
               />
               <div className="p-5 text-center">
                 <h3 className="text-xl font-bold text-indigo-600">{des.name}</h3>
