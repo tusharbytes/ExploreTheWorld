@@ -13,10 +13,10 @@ function Topbar() {
     return (
         <div className="relative">
             <div className="flex md:flex-row items-center rounded-t-3xl   justify-between bg-[#3c95fe] text-white px-6 py-4 shadow-md">
-            <div className="flex items-center space-x-2 text-white">
-    <Globe className="w-6 h-6  " />
-    <Link href={'/'} className="text-2xl font-bold">World Explore</Link>
-  </div>
+                <div className="flex items-center space-x-2 text-white">
+                    <Globe className="w-6 h-6  " />
+                    <Link href={'/'} className="text-2xl font-bold">World Explore</Link>
+                </div>
 
                 <nav className="hidden md:flex text-2xl items-center font space-x-6">
                     <Link href="/" className="">Home</Link>

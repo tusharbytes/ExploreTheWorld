@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { BiCurrentLocation } from "react-icons/bi";
 import { MdOutlineLibraryBooks } from "react-icons/md";
 import { CiViewBoard } from "react-icons/ci";
@@ -8,8 +8,11 @@ import Container from '../common/Container';
 import Link from 'next/link';
 function Page() {
   const [allCountry, setAllCountry] = useState([])
-  const [selectCity ,setSelectCity] = useState(null)
-  const[searchCountry , setSearchCountry] = useState("")
+  const debounceRef = useRef(null);
+
+  const [selectCity, setSelectCity] = useState(null)
+  const [searchCountry, setSearchCountry] = useState("")
+
   // console.log(searchCountry)
 
   useEffect(() => {
@@ -19,12 +22,12 @@ function Page() {
 
     }
     response()
-  }, []) 
-   
+  }, [])
+
   const option = [
     { name: "Destinations", icon: <BiCurrentLocation />, location: "lkdfa", path: "/destination" },
-    { name: "Bookings", icon: <MdOutlineLibraryBooks />, location: "oklsd", path: "/" },
-    { name: "Suport", icon: <CiViewBoard />, location: "odpksamf,x ", path: "/" }
+    { name: "Bookings", icon: <MdOutlineLibraryBooks />, location: "oklsd", path: "/bookings" },
+    { name: "Suport", icon: <CiViewBoard />, location: "odpksamf,x ", path: "/suport" }
 
   ]
   const destination = [
@@ -43,16 +46,22 @@ function Page() {
   const selectedArea = (area) => {
     setSelectCity(area)
   }
-   
+
   const handleSearch = (value) => {
-    // debugger
-    
     setSearchCountry(value);
-    const search = allCountry.filter((item) =>
-      item?.country.toLowerCase().includes(value?.toLowerCase())
-    );
-  
-   setAllCountry(search)
+    if (debounceRef.current) {
+      clearTimeout(debounceRef.current)
+    }
+
+    debounceRef.current = setTimeout(() => {
+      const search = allCountry.filter((item) =>
+        item?.country.toLowerCase().includes(value?.toLowerCase())
+      );
+
+      console.log(search, "debounce")
+      setAllCountry(search)
+    }, 2000);
+
   };
 
   return (
@@ -63,7 +72,7 @@ function Page() {
           backgroundImage: 'url("/header.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',  
+          backgroundRepeat: 'no-repeat',
         }}
       >
         <div className="text-center space-y-4">
@@ -88,11 +97,11 @@ function Page() {
 
 
             <div className=" grid grid-cols-1 md:grid-cols-2 gap-4 ">
-              <input value={ selectCity} type="text" className="px-3 py-2 border border-white placeholder:text-white  rounded  " />
-              <input onChange={(e)=>handleSearch(e.target.value)}   type="text" placeholder='Search...' className="px-3 py-2 border border-white  placeholder:text-white  rounded  " />
+              <input value={selectCity} type="text" className="px-3 py-2 border border-white   rounded  " />
+              <input onChange={(e) => handleSearch(e.target.value)} type="text" placeholder='Search...' className="px-3 py-2 border border-white  placeholder:text-white  rounded  " />
             </div>
 
-            <button  className="bg-[#e03030]  hover:bg-[#e01616] rounded-lg cursor-pointer text-white px-4 py-2">
+            <button className="bg-[#e03030]  hover:bg-[#e01616] rounded-lg cursor-pointer text-white px-4 py-2">
               Search
             </button>
           </div>
